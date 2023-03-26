@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <style>
+      .slideshow {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+      }
+      .slideshow img {
+        width: 500px;
+        height: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+      .slideshow img.active {
+        opacity: 1;
+      }
+      .slideshow-nav {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slideshow-nav button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        margin: 0 5px;
+        background-color: #ccc;
+        cursor: pointer;
+      }
+      .slideshow-nav button.active {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow">
+      <img src="tp/1.jpg" alt="image1" class="active">
+      <img src="tp/2.jpg" alt="image2">
+      <img src="tp/3.jpg" alt="image3">
+      <img src="tp/4.jpg" alt="image4">
+      <img src="tp/5.jpg" alt="image5">
+      <img src="tp/6.jpg" alt="image6">
+      <img src="tp/7.jpg" alt="image7">
+      <img src="tp/8.jpg" alt="image8">
+      <div class="slideshow-nav">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+    </div>
+    
+    <script>
+      const slideshow = document.querySelector('.slideshow');
+      const slides = Array.from(slideshow.querySelectorAll('img'));
+      const nav = document.querySelector('.slideshow-nav');
+      const navButtons = Array.from(nav.querySelectorAll('button'));
+      let currentSlide = 0;
+      let slideInterval;
+
+      function showSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        navButtons[currentSlide].classList.remove('active');
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        navButtons[currentSlide].classList.add('active');
+      }
+
+      function startSlideshow() {
+        slideInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 2000);
+      }
+
+      function stopSlideshow() {
+        clearInterval(slideInterval);
+      }
+
+      nav.addEventListener('mouseover', stopSlideshow);
+      nav.addEventListener('mouseout', startSlideshow);
+
+      navButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          showSlide(index);
+          stopSlideshow();
+        });
+      });
+
+      startSlideshow();
+    </script>
+  </body>
+</html>

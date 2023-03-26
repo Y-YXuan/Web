@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>小人奔跑动画</title>
+    <style>
+      /* 设置小人图片的样式 */
+      .runner {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-image: url('bg2.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 创建6个小人元素 -->
+    <div class="runner" id="runner1"></div>
+    <div class="runner" id="runner2"></div>
+    <div class="runner" id="runner3"></div>
+    <div class="runner" id="runner4"></div>
+    <div class="runner" id="runner5"></div>
+    <div class="runner" id="runner6"></div>
+
+    <script>
+      // 获取6个小人元素
+      const runners = document.querySelectorAll('.runner');
+      // 设置每个小人的初始位置和速度
+      const positions = [-50];
+      const speeds = [10];
+      for (let i = 0; i < runners.length; i++) {
+        runners[i].style.left = positions[i] + 'px';
+        runners[i].speed = speeds[i];
+      }
+
+      // 定义一个更新小人位置的函数
+      function updatePosition(runner) {
+        const currentPosition = parseInt(runner.style.left);
+        const newPosition = currentPosition + runner.speed;
+        runner.style.left = newPosition + 'px';
+        if (newPosition > window.innerWidth) {
+          // 小人跑出窗口，回到起点重新开始奔跑
+          runner.style.left = '-50px';
+        }
+      }
+
+      // 每100毫秒更新小人位置
+      setInterval(() => {
+        for (let i = 0; i < runners.length; i++) {
+          updatePosition(runners[i]);
+        }
+      }, 100);
+    </script>
+  </body>
+</html>

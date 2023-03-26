@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{table-layout: fixed; 
+            border-collapse: collapse;
+        }
+        th{
+            height: 45px;
+            letter-spacing: 10pt;
+            font-size: 20px;
+        }
+        .a{
+            text-align: right;
+        }
+        .b{
+            text-align: center;
+            letter-spacing: 8pt;
+        }
+        .width{
+            width: 110px;
+        }
+        .width2{
+            width: 200px;
+        }
+        .width3{
+            width: 270px;
+        }
+        /* .height{
+            height: 80px;
+        } */
+        tr{
+            height: 35px;
+            font-size: 15px;
+        }
+        .jvzhong{
+            text-align: center;
+        }
+        .xhx{
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th colspan="5" class="xhx">费用报销单</th>
+        </tr>
+        <tr>
+            <td colspan="3">部门：</td>
+            <td colspan="2" class="a">报销日期：&nbsp;&nbsp;&nbsp;&nbsp;年&ensp;&ensp;月&ensp;&ensp;日</td>
+        </tr>
+        <tr>
+            <td class="b width3" >费用项目</td>
+            <td class="b width" >类别</td>
+            <td class="b width">金额</td>
+            <td rowspan="2" class="width2 jvzhong" >负责人 (签章)</td>
+            <td rowspan="2" class="width2"> </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td> </td>
+            <td> </td>
+
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td> </td>
+            <td> </td>
+            <td class="b">审查意见</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td> </td>
+            <td> </td>
+            <td rowspan="2" class="width2 jvzhong" >报销人 (签章)</td>
+            <td rowspan="2"> </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td> </td>
+            <td> </td>
+
+        </tr>
+        <tr>
+            <td colspan="2" class="b">报销金额合计</td>
+            <td> </td>
+            <td colspan="2" class="xhx">￥&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</td>
+            
+        </tr>
+        <tr>
+            <td colspan="5" >&ensp;&ensp;实写金额(大写)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;拾&ensp;&ensp;&ensp;万&ensp;&ensp;&ensp;扦&ensp;&ensp;&ensp;佰&ensp;&ensp;&ensp;拾&ensp;&ensp;&ensp;元&ensp;&ensp;&ensp;角&ensp;&ensp;&ensp;分&ensp;&ensp;&ensp;￥</td>
+        </tr>
+        <tr>
+            <td class="jvzhong">借款数：</td>
+            <td> </td>
+            <td class="jvzhong">应退金额：</td>
+            <td> </td>
+            <td class="jvzhong">应补金额：&nbsp;元</td>
+        </tr>
+    </table>
+</body>
+</html>
